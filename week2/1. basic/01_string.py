@@ -23,25 +23,36 @@
 - 알파벳과 숫자만 남기고 소문자로 변환하세요
 - 문자열을 뒤집어서 비교하거나, 양 끝에서 시작해 중앙으로 이동하며 비교하세요
 """
-
+# 함수 삭제 금지
 def is_palindrome(s):
-    """
-    문자열이 회문인지 판별하는 함수
-    
-    Args:
-        s: 판별할 문자열
-    
-    Returns:
-        bool: 회문이면 True, 아니면 False
-    """
     # TODO: 알파벳과 숫자만 남기고 소문자로 변환하세요
     # 힌트: isalnum() 메서드와 lower() 메서드 사용
-    pass
+    # 전체 lower()
+    # 문자열 불변성 / 자바와 같은 참조타입
+    s = s.lower()
+    
+    # 인덱스? 리스트로 변환 > 글자만 판별해야하는데 추가 로직 작성?
+    # isalnum은 참 거짓만 반환 > 실제 변환은 직접 해야함
+    # 리스트로 변환 하면서 직접 넣기
+    arr = []
+    for i in s:
+        if i.isalnum():
+           arr.append(i)
     
     # TODO: 정제된 문자열이 회문인지 확인하세요
     # 방법1: 문자열을 뒤집어서 비교 ([::-1] 사용)
     # 방법2: 양 끝 인덱스를 이용한 투 포인터 방식
-    pass
+    count = len(arr)
+    
+    for i in range(count//2):
+        if arr[i] != (arr[count -1 - i]):
+            return False
+    
+    return True
+        
+        # 홀짝에 맞춰서 양쪽에서 탐색
+        # 하나라도 안맞으면 바로 False
+
     
     #return False
 
