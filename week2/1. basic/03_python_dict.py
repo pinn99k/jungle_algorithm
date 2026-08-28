@@ -51,8 +51,14 @@ def find_above_average_students(students):
 
     pass
 
+    def is_sum(students, n):
+        if n < 0:
+            return 0
+
+        return students[n].get("score") + is_sum(students, n - 1)
+
     # TODO: 평균 점수를 계산하세요
-    avg = sum(score_list)/n
+    avg = is_sum(students, n-1)/n
 
     pass
 
