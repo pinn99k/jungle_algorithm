@@ -62,12 +62,29 @@ def n_queens(n: int) -> int:
     """
     # TODO: 백트래킹으로 가능한 배치의 수를 반환하세요.
     # 권장 구조:
-    #   cols = [0] * n
-    #   count = 0
-    #   def place(row):
-    #       ...
-    #   place(0)
-    #   return count
+    cols = [0] * n
+    count = 0
+    # row를 받아서 모두 시도하고 count를 올린다
+    # 멈추는 조건 : n에 도착햇을때
+    # row는 현재 실행중인 행
+    def place(row):
+      nonlocal count
+      if row == n:
+        count +=1
+        return
+      for c in range(n):
+          if not is_safe(row,c):
+            continue
+          cols[row] = c
+          place(row+1)
+
+    def is_safe(row,col):
+        for i in range(row):
+          if cols[i] == col or abs(cols[i] - col) == row - i:
+            return False
+        return True
+    place(0)
+    return count
     pass
 
 
