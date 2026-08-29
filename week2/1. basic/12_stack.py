@@ -36,7 +36,18 @@ def is_valid_parentheses(s):
         올바른 괄호면 True, 아니면 False
     """
     stack = []
-    
+    # 파이썬엔 push랑 peek가 아닌 append랑 [-1]을 사용함
+    for c in s:
+        if c == '(':
+            stack.append('(')
+        if c == ')':
+            if not stack or stack[-1] == ')':
+                return False
+            stack.pop()
+    if not stack:
+        return  True
+    return False
+
     # TODO: 문자열의 각 문자를 순회
     ## : 여는 괄호 '('면 스택에 추가
     ## : 닫는 괄호 ')'면
