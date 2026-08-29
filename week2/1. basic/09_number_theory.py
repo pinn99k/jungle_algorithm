@@ -1,3 +1,4 @@
+import math
 """
 [정수론 - 최대공약수(GCD)와 최소공배수(LCM)]
 
@@ -77,6 +78,7 @@ def lcm(a, b):
     return (a * b) / gcd(a, b)
     pass
 
+# 모르겠습니다...
 def extended_gcd(a, b):
     """
     확장 유클리드 호제법
@@ -94,7 +96,8 @@ def extended_gcd(a, b):
         return (a, 1, 0)
     # recursive case
     # 역추적하며 x, y 계산
-    return extended_gcd(gcd(a,b), a%gcd(a,b))
+
+    return extended_gcd(b, gcd(a,b)%b)
     pass
 
 def is_prime(n):
@@ -109,16 +112,15 @@ def is_prime(n):
     """
     # TODO: 소수 판별 구현
     # n이 2보다 작으면 False
-    # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    
+    # 2부터 sqrt(n)까지 나누어 떨어지는지 확인
     # 3부터 sqrt(n)까지 홀수만 확인
     if n < 2:
         return False
-    if n%2 != 0:
-        if math.sqrt(n)%2 != 0:
+    
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
             return False
-    else:
-        if math.sqrt(n)%3 != 0:
-            return False
+        
     return True
     pass 
 
