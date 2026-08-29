@@ -91,12 +91,14 @@ print_list() 가 해야 할 일:
             current 를 current.next 로 이동.
 """
 
-# 노드 : 하나의 값이라고 볼 수 있음 데이터와 tail 존재
+# 노드 : 하나의 값 자기자신과 다음을 가르키고 있음
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
+
+# 단방향 연결 리스트 
 class LinkedList:
     # 생성자 / 클래스 시작 시 처음 실행되는 함수
     def __init__(self):
@@ -120,6 +122,32 @@ class LinkedList:
         # ─── Level 3: 마지막 노드의 next 에 새 노드를 붙이기
         # TODO:
         current.next = new_node
+
+    # 노드 뒤에 중간 삽입
+    def insert_after(self, prev_node, data):
+        if prev_node is None:
+            return
+        new_node = Node(data)
+        new_node.next = prev_node.next  # 새 노드가 기존 다음 노드를 가리킴
+        prev_node.next = new_node        # 이전 노드가 새 노드를 가리킴
+
+    # 타겟 데이터를 찾아 수정
+    def update_data(self, target, new_data):
+        current = self.head
+        while current is not None:
+            if current.data == target:
+                current.data = new_data
+                return True
+            current = current.next
+        return False
+
+    # 삭제
+    def delete(self, target_data):
+        if self.head is None:
+            return
+        if self.head.data == target_data:  # 맨 앞(head)을 삭제하는 경우
+            self.head = self.head.next
+            return
 
     def print_list(self):
         values = []
