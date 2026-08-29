@@ -86,5 +86,3 @@ if __name__ == "__main__":
     print("=== 추가 테스트 ===")
     print(f"10! = {factorial(10)}")
     print(f"fib(15) = {fibonacci(15)}")
-
-
