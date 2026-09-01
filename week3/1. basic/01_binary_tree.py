@@ -28,8 +28,6 @@
 후위: [4, 5, 2, 3, 1]
 
 힌트:
-- 재귀로 간단히 구현 가능
-- 순회 순서만 다름
 """
 
 class TreeNode:
@@ -39,59 +37,75 @@ class TreeNode:
         self.left = None
         self.right = None
 
-def preorder(root):
+def preorder(root): 
+    # TreeNode(1)
     """전위 순회: 루트 → 왼쪽 → 오른쪽"""
     result = []
     
-    # TODO: root가 None이면 빈 리스트 반환
+    # TODO:
+    if root == None:
+        return []
     pass
     
     # TODO: 루트 값 추가
+    result.append(root.value)
     pass
     
     # TODO: 왼쪽 서브트리 순회
+    left = preorder(root.left)
     pass
     
     # TODO: 오른쪽 서브트리 순회
+    right = preorder(root.right)
     pass
     
-    return result
+    return result + left + right
 
 def inorder(root):
     """중위 순회: 왼쪽 → 루트 → 오른쪽"""
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
+    if root == None:
+        return []
     pass
     
     # TODO: 왼쪽 서브트리 순회
+    left = inorder(root.left)
     pass
     
     # TODO: 루트 값 추가
+    result.append(root.value)
     pass
     
     # TODO: 오른쪽 서브트리 순회
+    right = inorder(root.right)
     pass
     
-    return result
+    return left + result + right
 
 def postorder(root):
     """후위 순회: 왼쪽 → 오른쪽 → 루트"""
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
+    if root == None:
+        return []
     pass
     
     # TODO: 왼쪽 서브트리 순회
+    left = postorder(root.left)
     pass
     
     # TODO: 오른쪽 서브트리 순회
+    right = postorder(root.right)
     pass
     
     # TODO: 루트 값 추가
+    result.append(root.value)
     pass
     
-    return result
+    return left + right + result
 
 # 테스트 케이스
 if __name__ == "__main__":
