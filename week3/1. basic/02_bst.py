@@ -28,9 +28,6 @@
 찾는 값: 6 → False
 
 힌트:
-- target < root.value → 왼쪽으로 이동
-- target > root.value → 오른쪽으로 이동
-- target == root.value → 찾음!
 """
 
 class TreeNode:
@@ -51,12 +48,18 @@ def search_bst(root, target):
         True/False
     """
     # TODO: root가 None이면 False 반환
-    pass
+    if root == None:
+        return False
     
+
     # TODO: 값을 찾으면 True 반환
-    ## target이 작으면 왼쪽 서브트리에서 검색
-    ## target이 크면 오른쪽 서브트리에서 검색
-    pass
+    if root.value == target:
+        return True
+    
+    if root.value > target:
+        return search_bst(root.left,target)
+    else:
+        return search_bst(root.right,target)
 
 # 테스트 케이스
 if __name__ == "__main__":

@@ -45,19 +45,15 @@ def preorder(root):
     # TODO:
     if root == None:
         return []
-    pass
     
     # TODO: 루트 값 추가
     result.append(root.value)
-    pass
     
     # TODO: 왼쪽 서브트리 순회
     left = preorder(root.left)
-    pass
     
     # TODO: 오른쪽 서브트리 순회
     right = preorder(root.right)
-    pass
     
     return result + left + right
 
@@ -68,19 +64,15 @@ def inorder(root):
     # TODO: root가 None이면 빈 리스트 반환
     if root == None:
         return []
-    pass
     
     # TODO: 왼쪽 서브트리 순회
     left = inorder(root.left)
-    pass
     
     # TODO: 루트 값 추가
     result.append(root.value)
-    pass
     
     # TODO: 오른쪽 서브트리 순회
     right = inorder(root.right)
-    pass
     
     return left + result + right
 
@@ -91,19 +83,15 @@ def postorder(root):
     # TODO: root가 None이면 빈 리스트 반환
     if root == None:
         return []
-    pass
     
     # TODO: 왼쪽 서브트리 순회
     left = postorder(root.left)
-    pass
     
     # TODO: 오른쪽 서브트리 순회
     right = postorder(root.right)
-    pass
     
     # TODO: 루트 값 추가
     result.append(root.value)
-    pass
     
     return left + right + result
 
