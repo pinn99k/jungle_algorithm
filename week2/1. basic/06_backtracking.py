@@ -106,10 +106,7 @@ combinations(n, k) -> list[list[int]]
 
 ==============================================================================
 """
-
-
-def combinations(n: int, k: int) -> list:
-    """
+"""
     1 부터 n 까지 숫자 중 k 개를 선택하는 모든 조합을 반환합니다.
 
     Args:
@@ -118,14 +115,11 @@ def combinations(n: int, k: int) -> list:
 
     Returns:
         모든 조합을 담은 리스트(예: [[1,2], [1,3], ...])
-    """
+"""
+
+def combinations(n: int, k: int) -> list:
     result = []  # 완성된 조합을 모아 둘 곳
-
-        # 재귀(백트래킹) 헬퍼 함수.
-
-        # Args:
-        #     start: 이번에 시도해볼 수 있는 가장 작은 숫자
-        #     current_combination: 지금까지 골라 둔 숫자들 (탐색 중)
+    
     def backtrack(start: int, current_combination: list) -> None:
       if len(current_combination) == k:
         result.append(list(current_combination))

@@ -39,9 +39,7 @@ def bubble_sort(arr):
         # 연산은 앞부터 / 정렬은 뒤부터
         for j in range(n-i-1):
             if arr[j] > arr[j+1]:
-                temp = arr[j+1]
-                arr[j+1] = arr[j]
-                arr[j] = temp
+                arr[j], arr[j+1] = arr[j+1], arr[j]
 
     
     # TODO: 외부 반복문 - n-1번 반복

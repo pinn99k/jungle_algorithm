@@ -40,7 +40,7 @@ def merge(arr, left, mid, right):
     j = 0
     k = left
     # TODO: left_arr와 right_arr를 비교하며 작은 값을 arr에 복사
-    while i < len(left_arr) and j< len(right_arr):
+    while i < len(left_arr) and j < len(right_arr):
         if left_arr[i] <= right_arr[j]:
             arr[k] = left_arr[i]
             i += 1

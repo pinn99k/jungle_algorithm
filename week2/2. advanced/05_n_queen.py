@@ -68,16 +68,20 @@ def n_queens(n: int) -> int:
     # 멈추는 조건 : n에 도착햇을때
     # row는 현재 실행중인 행
     def place(row):
+      # 바깥함수를 직접 수정하기 위해 선언
       nonlocal count
+      # 행이 다 찼다는건 배치를 다 했다는 의미
       if row == n:
         count +=1
         return
+      
       for c in range(n):
           if not is_safe(row,c):
             continue
           cols[row] = c
           place(row+1)
-
+          
+    # 세로 대각선 검사하는 함수
     def is_safe(row,col):
         for i in range(row):
           if cols[i] == col or abs(cols[i] - col) == row - i:

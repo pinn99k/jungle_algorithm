@@ -21,10 +21,7 @@
 - Base case: left == right일 때 arr[left] 반환
 - 배열을 반으로 나누어 재귀 호출
 - 왼쪽과 오른쪽의 최댓값 중 큰 값 반환
-"""
 
-def find_max_divide_conquer(arr, left, right):
-    """
     분할 정복으로 최댓값 찾기
     
     Args:
@@ -34,7 +31,10 @@ def find_max_divide_conquer(arr, left, right):
     
     Returns:
         최댓값
-    """
+"""
+
+def find_max_divide_conquer(arr, left, right):
+
     # TODO: base case - 원소가 하나면 그 값 반환
     if left == right:
         return arr[left]
