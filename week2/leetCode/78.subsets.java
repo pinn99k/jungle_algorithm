@@ -3,7 +3,6 @@ class Solution {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         
-        // 🚀 백트래킹 시작 (nums 배열도 함께 전달합니다)
         backtrack(0, temp, result, nums);
         
         return result;
