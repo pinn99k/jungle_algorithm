@@ -33,21 +33,45 @@ def select_meetings(meetings):
         (배정된 회의 개수, 선택된 회의 리스트)
     """
     # TODO: 회의가 없으면 0 반환
-    pass
+    if not meetings:
+        return 0, []
     
     # TODO: 종료 시간 기준으로 정렬
-    pass
+    # 퀵정렬로 구현
+    sort_healper(meetings, 0, len(meetings)-1)
     
     selected = []
     
     # TODO: 첫 번째 회의 선택
-    pass
+    selected.append(meetings[0])
     
     # TODO: 나머지 회의들 확인
+    for i in meetings:
+         if selected[-1][1] <= i[0]:
+              selected.append(i)
     ## 이전 회의가 끝난 후 시작하는 회의만 선택
     pass
     
     return len(selected), selected
+
+def sort_healper(meetings, left:int, right : int):
+    if left < right:
+        mid = quick_sort(meetings, left, right)
+        sort_healper(meetings, left,mid-1)
+        sort_healper(meetings, mid+1,right)
+     
+def quick_sort(meetings, left, right):
+
+        pivot = meetings[right][1]
+        i = left -1
+        for j in range(left, right):
+            if meetings[j][1] < pivot:
+                i += 1
+                meetings[j], meetings[i] = meetings[i], meetings[j]
+
+        i+=1
+        meetings[right], meetings[i] = meetings[i], meetings[right]
+        return i
 
 # 테스트 케이스
 if __name__ == "__main__":
