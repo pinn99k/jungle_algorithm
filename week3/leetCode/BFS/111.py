@@ -1,4 +1,6 @@
 # Definition for a binary tree node.
+from collections import deque
+
 from pyparsing import Optional
 
 
@@ -9,15 +11,19 @@ class TreeNode:
         self.right = right
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
-        if root is None:
-            return 0 
+        if not root:
+            return 0
         
-        left = self.minDepth(root.left)
-        right = self.minDepth(root.right)
-
-        if left == 0:
-            return right + 1
-        elif right == 0:
-            return left + 1
+        queue = deque([(root, 1)])
+        
+        while queue:
+            node, depth = queue.popleft()
             
-        return min(left, right) + 1
+            # 리프 만나는 순간 바로 리턴 — 그게 최소 깊이
+            if not node.left and not node.right:
+                return depth
+            
+            if node.left:
+                queue.append((node.left, depth + 1))
+            if node.right:
+                queue.append((node.right, depth + 1))
