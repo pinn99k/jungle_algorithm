@@ -88,11 +88,10 @@ int main()
 			// 정렬된 리스트를 출력함
 			printf("The resulting sorted linked list is: ");
 			printList(&ll);
-			// 리스트를 비우는 건가?
-			// 추측 / for 문을 돌면서 노드마다 free를 해주면 되지 않을까 싶음
-			removeAllItems(&ll);
 			break;
 		case 0: // 종료 조건
+			// 리스트를 비우는 건가?
+			// 추측 / for 문을 돌면서 노드마다 free를 해주면 되지 않을까 싶음
 			removeAllItems(&ll);
 			break;
 		default:

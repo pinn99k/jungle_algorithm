@@ -84,8 +84,6 @@ int main()
 			printList(&ll1);
 			printf("The resulting linked list 2: ");
 			printList(&ll2);
-			removeAllItems(&ll1);
-			removeAllItems(&ll2);
 			break;
 		case 0:
 			removeAllItems(&ll1);
@@ -103,7 +101,28 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
-    /* add your code here */
+	ListNode *temp;
+	int size1 = ll1->size;
+	int i = 0;
+	// 배열이 0일때 처리
+	// 넣은 값은 삭제해야 함
+	if(ll1-> head == NULL){
+		ll1->head = ll2->head;
+		ll2->head = NULL; // !!!널값으로 헤드를 비워줘야 free 중복이 안됨!!!
+		return;
+	}
+
+	while (i < size1) {
+		// 헤드가 널이면 그만
+		if (ll2->head != NULL){
+			return;
+		}
+		// 아이템을 복사해두고 노드를 지워줘야함
+		int v = ll2->head->item;
+		removeNode(ll2, 0);
+		insertNode(ll1, i*2 + 1, v);
+		i++;
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
