@@ -86,7 +86,24 @@ int main()
 
 void moveOddItemsToBack(LinkedList *ll)
 {
-	/* add your code here */
+	// 상대적 순서 유지: 원래 리스트에 있던 짝수들의 순서와 홀수들의 순서가 뒤바뀌지 않고 그대로 보존되어야 합니다.
+	// 배열을 돌면서 짝수를 뽑아서 0부터 순서대로 넣기
+	// 아이템을 뽑은건 삭제
+	if (ll->head == NULL){
+		return;
+	}
+	int i = ll->size;
+	int temp = -1; // 짝수의 인덱스
+	for (int j = 0; j < i; j ++){
+		int num = findNode(ll, j)->item;
+		// 짝수 인 경우
+		if ((num % 2) == 0){
+			temp ++;
+			removeNode(ll, j);
+			insertNode(ll, temp, num);
+
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
