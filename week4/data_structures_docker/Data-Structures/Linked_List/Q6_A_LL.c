@@ -68,7 +68,7 @@ int main()
 			printList(&ll);
 			break;
 		case 2:
-			moveMaxToFront(&(ll.head));  // You need to code this function
+			moveMaxToFront(&(ll. head));  // You need to code this function
 			printf("The resulting linked list after moving largest stored value to the front of the list is: ");
 			printList(&ll);
 			removeAllItems(&ll);
@@ -93,7 +93,7 @@ int moveMaxToFront(ListNode **ptrHead)
 	ListNode *cur;
 	ListNode *max;
 	ListNode *prev = NULL;
-	if (ptrHead == NULL){
+	if (*ptrHead == NULL){
 		return -1;
 	}
 	cur = *ptrHead; // 순회할 노드
