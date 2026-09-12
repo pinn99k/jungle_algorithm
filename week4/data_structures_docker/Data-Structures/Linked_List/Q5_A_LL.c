@@ -101,8 +101,25 @@ int main()
 //////////////////////////////////////////////////////////////////////////////////
 
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
-{
-	/* add your code here */
+{	
+	if (ll->head == NULL){
+		return;
+	}
+	// 나눌 인덱스
+	// 앞쪽에 하나 더 많게 고정
+	// mid 앞 vs mid 부터 뒤까지
+	int s = ll->size;
+	int mid = ((s) +1) / 2;
+	ListNode *temp;
+	resultBackList->size = s-mid;
+	temp = findNode(ll, mid-1); // find 한번만 하도록
+	resultBackList->head = temp->next;
+	temp->next = NULL;
+	resultFrontList->head = ll->head;
+	resultFrontList->size = mid;
+	
+	ll->head = NULL;
+	ll->size = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

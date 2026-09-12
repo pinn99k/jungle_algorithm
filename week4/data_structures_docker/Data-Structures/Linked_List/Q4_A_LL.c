@@ -101,7 +101,6 @@ void moveEvenItemsToBack(LinkedList *ll)
 			temp ++;
 			removeNode(ll, j);
 			insertNode(ll, temp, num);
-
 		}
 	}
 }
